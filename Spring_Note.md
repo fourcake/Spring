@@ -162,8 +162,6 @@ IOC就是控制反转，**把对象的创建和对象之间的引用过程都交
                      new ClassPathXmlApplicationContext("bean.xml");
      ```
 
-## 
-
 ## **3.什么是Bean管理：**
 
 - 由Spring创建对象
@@ -231,6 +229,20 @@ IOC就是控制反转，**把对象的创建和对象之间的引用过程都交
            book.testdemo();
           ```
 
+     - p名称空间注入，简化方式**(基于set方法)**
+
+       ```java
+       <beans xmlns="http://www.springframework.org/schema/beans"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              //重点
+              xmlns:p="http://www.springframework.org/schema/p"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+           <!--配置ueser类-->
+           <bean id="book" class="com.atguigu.spring5.Book" p:bname="我的书" p:bauthor="我自己"></bean>
+       </beans>
+       ```
+       
      - 有参构造注入：实现有参构造方法，在其中注入属性
 
        1. 创建属性和对应的set方法
@@ -273,15 +285,110 @@ IOC就是控制反转，**把对象的创建和对象之间的引用过程都交
            order.testdemo();
           ```
 
-          
+3. **基于XML方式注入其它类型属性**
 
-     - 啊
+   1. 字面量
 
-     -  大大
+      - null：使用null标签
 
-   - 但是啊
+        ```java
+         <bean id="book" class="com.atguigu.spring5.Book">
+        
+                <property name = "bname" value = "易筋经"></property>
+                <property name = "bauthor" value = "达摩"></property>
+                <property name = "address">
+                    <null/>
+                </property>
+            </bean>
+        ```
 
-3. 是是
+      - 带有特殊符号
+
+        ```java
+         <property name="address">
+                    <value>
+                        <![CDATA[<<南京>>]]>
+                    </value>
+                </property>
+        ```
+
+   2. 注入属性-外部bean
+
+      1. 创建两个类：Service和Dao
+
+      2. 在Service中调用Dao的方法
+
+         ```java
+         public class UserService {
+         
+             //创建UserDap类型属性，生成set方法
+             private UserDao userDao;
+             public void setUserDao(UserDao userDao){
+                 this.userDao=userDao;
+             }
+             public void add(){
+                 System.out.println("service add.........");
+                 userDao.update();
+                 //创建userDao的对象的原始方式
+                 //UserDao userDao=new UserDaoImpl();
+                 //userDao.update();
+             }
+         }
+         ```
+
+      3. 修改配置文件
+
+         ```java
+         <?xml version="1.0" encoding="UTF-8"?>
+         <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+         
+         <!--    注入属性-外部bean-->
+         
+         <!--    1.创建service和dao对象-->
+         
+             <bean id = "userService" class = "com.atguigu.spring5.service.UserService">
+                 <!--    2.在service中注入dao-->
+         <!--        name:类里面属性的名称-->
+         <!--        ref:userDao对象bean标签的id值，把外部其它对象注入进来 -->
+                 <property name="userDao" ref="userDaoImpl"></property>
+         
+             </bean>
+             <bean id = "userDaoImpl" class = "com.atguigu.spring5.dao.UserDaoImpl"></bean>
+                 
+         </beans>
+         ```
+
+      4. 测试
+
+         ```JAVA
+         package TestDemo;
+         
+         public class TestOutBean {
+             @Test
+             public void testAdd(){
+                 //1.加载配置文件，bean.xml
+                 ApplicationContext context=
+                         new ClassPathXmlApplicationContext("bean1.xml");
+                 //2.获取配置文件创建的对象
+                 UserService userService=context.getBean("userService", UserService.class);
+         
+                 //测试
+                 userService.add();
+             }
+         }
+         ```
+
+         
+
+   3. 注入属性--内部bean
+
+   4. 级联赋值
+
+4. 大
+
+5. 撒
 
 ## 5.IOC操作Bean管理（基于注解）
 

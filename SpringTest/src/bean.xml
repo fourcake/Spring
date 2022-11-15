@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--配置ueser类-->
-    <bean id="user1" class="com.atguigu.spring5.User"></bean>
+<!--    配置ueser类-->
+
+    <bean id="book" class="com.atguigu.spring5.Book">
+
+        <property name = "bname" value = "易筋经"></property>
+        <property name = "bauthor" value = "达摩"></property>
+    </bean>>
+<!--        属性值为null-->
+<!--        <property name = "address">-->
+<!--            <null/>-->
+<!--        </property>-->
+<!--        属性值包含特殊符号,比如<>
+            1.转义字符
+            2.写到CDATA
+-->
+<!--        <property name="address">-->
+<!--            <value>-->
+<!--                <![CDATA[<<南京>>]]>-->
+<!--            </value>-->
+<!--        </property>-->
+
+
+
+
 </beans>

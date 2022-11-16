@@ -336,7 +336,7 @@ IOC就是控制反转，**把对象的创建和对象之间的引用过程都交
          }
          ```
 
-      3. 修改配置文件
+      3. 修改配置文件，即在外部建立对象，用ref引入对象
 
          ```java
          <?xml version="1.0" encoding="UTF-8"?>
@@ -373,22 +373,83 @@ IOC就是控制反转，**把对象的创建和对象之间的引用过程都交
                          new ClassPathXmlApplicationContext("bean1.xml");
                  //2.获取配置文件创建的对象
                  UserService userService=context.getBean("userService", UserService.class);
-         
                  //测试
                  userService.add();
              }
          }
          ```
-
          
 
    3. 注入属性--内部bean
 
+      1. 一对多关系：部门和员工
+
+      2. 在实体类中表示一对多关系，即实现两个类，用对象引用表示所属关系
+
+      3. 在配置文件中进行配置
+
+         ```java
+         <?xml version="1.0" encoding="UTF-8"?>
+         <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+         
+         <!--    注入内部bean-->
+             <bean id = "emp" class = "com.atguigu.spring5.bean.Emp">
+         <!--        设置普通属性-->
+                 <property name="ename" value="lucy"></property>
+                 <property name="gender" value="女"></property>
+         <!--        设置对象类型属性-->
+                 <property name="dept">
+                     <bean id = "dept" class="com.atguigu.spring5.bean.Dept">
+                         <property name="dname" value="安保部"></property>
+                     </bean>
+                 </property>
+             </bean>
+         </beans> 
+         ```
+
    4. 级联赋值
 
-4. 大
+      上一条其实也是级联赋值，此处为其它实现方式
 
-5. 撒
+      ```java
+      <?xml version="1.0" encoding="UTF-8"?>
+      <beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+      <!--    级联赋值-->
+      
+          <bean id = "emp" class = "com.atguigu.spring5.bean.Emp">
+              <!--        设置普通属性-->
+              <property name="ename" value="lucy"></property>
+              <property name="gender" value="女"></property>
+              <!--        设置对象类型属性，级联赋值-->
+              <property name="dept" ref="dept"></property>
+          </bean>
+      
+          <bean id = "dept" class="com.atguigu.spring5.bean.Dept">
+                  <property name="dname" value = "财务部"></property>
+          </bean>
+      </beans>
+      ```
+
+      第二种写法，需要生成对象对应的get方法
+
+      ```java
+      <bean id = "emp" class = "com.atguigu.spring5.bean.Emp">
+              <!--        设置普通属性-->
+              <property name="ename" value="lucy"></property>
+              <property name="gender" value="女"></property>
+              <!--        设置对象类型属性，级联赋值-->
+              <property name="dept" ref="dept"></property>
+              <property name="dept.dname" value="技术部"></property>
+          </bean>
+      
+          <bean id = "dept" class="com.atguigu.spring5.bean.Dept">
+              <property name="dname" value = "财务部"></property>
+          </bean>
+      ```
 
 ## 5.IOC操作Bean管理（基于注解）
 

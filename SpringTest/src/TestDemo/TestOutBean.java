@@ -1,6 +1,7 @@
 package TestDemo;
 
 import com.atguigu.spring5.User;
+import com.atguigu.spring5.bean.Emp;
 import com.atguigu.spring5.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,5 +20,17 @@ public class TestOutBean {
 
         //测试
         userService.add();
+    }
+
+    @Test
+    public void testBean(){
+        //1.加载配置文件，bean.xml
+        ApplicationContext context=
+                new ClassPathXmlApplicationContext("bean3.xml");
+        //2.获取配置文件创建的对象
+        Emp emp=context.getBean("emp", Emp.class);
+
+        //测试
+        emp.testdemo();
     }
 }

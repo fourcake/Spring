@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a218603-a442-4f39-8232-935bcc9a454e" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/TestDemo/TestOutBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bean1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/atguigu/spring5/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/atguigu/spring5/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/atguigu/spring5/dao/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bean2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bean3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/atguigu/spring5/bean/Dept.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/atguigu/spring5/bean/Emp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringTest/TestDemo/TestSpring5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpringTest/TestDemo/TestSpring5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringTest/bean.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpringTest/bean.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestDemo/TestSpring5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestDemo/TestSpring5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpringTest/TestDemo/TestOutBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpringTest/TestDemo/TestOutBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestDemo/TestOutBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestDemo/TestOutBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring_Note.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_Note.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
@@ -36,7 +32,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HJ9d0qpk7DYHDvwqn4Cod23eAR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -59,7 +57,7 @@
       <recent name="D:\github_repository\Spring\SpringTest\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestOutBean.testAdd">
+  <component name="RunManager" selected="JUnit.TestOutBean.testBean">
     <configuration name="TestOutBean.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpringTest" />
       <extension name="coverage">
@@ -71,6 +69,22 @@
       <option name="PACKAGE_NAME" value="TestDemo" />
       <option name="MAIN_CLASS_NAME" value="TestDemo.TestOutBean" />
       <option name="METHOD_NAME" value="testAdd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestOutBean.testBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestDemo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="TestDemo" />
+      <option name="MAIN_CLASS_NAME" value="TestDemo.TestOutBean" />
+      <option name="METHOD_NAME" value="testBean" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,6 +124,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestOutBean.testBean" />
         <item itemvalue="JUnit.TestOutBean.testAdd" />
         <item itemvalue="JUnit.TestSpring5.testBook" />
         <item itemvalue="JUnit.TestSpring5.testAdd" />
@@ -132,6 +147,7 @@
       <workItem from="1668478511854" duration="2666000" />
       <workItem from="1668501219894" duration="1482000" />
       <workItem from="1668513028327" duration="2155000" />
+      <workItem from="1668579012257" duration="1698000" />
     </task>
     <servers />
   </component>
